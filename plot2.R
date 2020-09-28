@@ -16,3 +16,11 @@ plot_data<-subset(all_data, dmy(all_data[,1])==dmy("01/02/2007")|
 plot_data[,1]<-dmy(plot_data[,1])
 plot_data[,2]<-hms(plot_data[,2])
 
+#making required plot and saving as png
+png("plot2.png",width=480,height=480)
+plot(plot_data$Global_active_power, type="l", xlab="", ylab="", axes=F)
+axis(1, at=c(0,1500,2900), labels=c("Thurs","Fri","Sat"))
+axis(2, at=c(0,2,4,6))
+box()
+title(ylab="Global Active Power (killowatts)")
+dev.off()
