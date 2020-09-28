@@ -15,3 +15,7 @@ plot_data<-subset(all_data, dmy(all_data[,1])==dmy("01/02/2007")|
 #make first column a date variable, second column a time variable
 plot_data[,1]<-dmy(plot_data[,1])
 plot_data[,2]<-hms(plot_data[,2])
+
+#making required plot
+hist(plot_data$Global_active_power, col="red", xlab="Global Active Power (kilowatts)",
+     main="Global Active Power")
