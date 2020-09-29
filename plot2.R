@@ -18,9 +18,6 @@ plot_data<-plot_data %>%
 
 #making required plot and saving as png
 png("plot2.png",width=480,height=480)
-plot(plot_data$Global_active_power, type="l", xlab="", ylab="", axes=F)
-axis(1, at=c(0,1500,2900), labels=c("Thurs","Fri","Sat"))
-axis(2, at=c(0,2,4,6))
-box()
-title(ylab="Global Active Power (killowatts)")
+plot(plot_data$datetime, plot_data$Global_active_power, type="l", xlab="",
+     ylab="Global Active Power (killowatts)")
 dev.off()
