@@ -23,6 +23,6 @@ plot(plot_data$datetime, plot_data$Sub_metering_1, type="n", xlab="",
 points(plot_data$datetime, plot_data$Sub_metering_1,typ="l",col="black")
 points(plot_data$datetime, plot_data$Sub_metering_2,typ="l",col="red")
 points(plot_data$datetime, plot_data$Sub_metering_3,typ="l",col="blue")
-legend("topright",legend=c("Sub metering 1","Sub metering 2","Sub metering 3"),
+legend("topright",legend=names(plot_data)[6:8], 
        lwd=c(1,1,1),col=c("black","red","blue"))
 dev.off()
