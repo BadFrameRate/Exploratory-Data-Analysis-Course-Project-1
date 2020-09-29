@@ -12,7 +12,7 @@ all_data<-read.table("./household_power_consumption.txt", head=T, sep=";",
 plot_data<-subset(all_data, dmy(all_data[,1])==dmy("01/02/2007")|
                     dmy(all_data[,1])==dmy("02/02/2007"))
 
-#make first column a date variable, second column a time variable
-plot_data[,1]<-dmy(plot_data[,1])
-plot_data[,2]<-hms(plot_data[,2])
+#make a single datetime column
+plot_data<-plot_data %>% 
+  mutate(datetime=dmy(Date)+hms(Time), .before=1, Date=NULL, Time=NULL)
 
