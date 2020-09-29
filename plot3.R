@@ -18,13 +18,11 @@ plot_data<-plot_data %>%
 
 #making required plot and saving as png
 png("plot3.png",width=480,height=480)
-plot(plot_data$Sub_metering_1,type="n",axes=F,xlab="",ylab="Energy sub metering")
-box()
-axis(1,at=c(0,1500,2900),labels=c("Thurs","Fri","Sat"))
-axis(2,at=c(0,10,20,30))
-points(plot_data$Sub_metering_1,typ="l",col="black")
-points(plot_data$Sub_metering_2,typ="l",col="red")
-points(plot_data$Sub_metering_3,typ="l",col="blue")
+plot(plot_data$datetime, plot_data$Sub_metering_1, type="n", xlab="", 
+     ylab="Energy sub metering")
+points(plot_data$datetime, plot_data$Sub_metering_1,typ="l",col="black")
+points(plot_data$datetime, plot_data$Sub_metering_2,typ="l",col="red")
+points(plot_data$datetime, plot_data$Sub_metering_3,typ="l",col="blue")
 legend("topright",legend=c("Sub metering 1","Sub metering 2","Sub metering 3"),
        lwd=c(1,1,1),col=c("black","red","blue"))
 dev.off()
